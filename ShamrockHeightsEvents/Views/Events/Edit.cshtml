@@ -1,0 +1,33 @@
+﻿@model Event
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Editing @Model.Title</h1>
+
+<form method="post">
+    <label>Name of Event</label>
+    <input asp-for="Title" value="@Model.Title"/>
+    <br />
+    <label>Event Description</label>
+    <textarea asp-for="Description" rows="5" cols="30" value="@Model.Description"></textarea>
+    <br />
+    <label>Location of Event</label>
+    <input asp-for="Location" value="@Model.Location" />
+    <br />
+    <label>URL of a Picture Representing the Event</label>
+    <input asp-for="ImageUrl" value="@Model.ImageUrl" />
+    <br />
+    <label>Year </label>
+    <input asp-for="Year" value="@Model.Year" />
+    <label>Month </label>
+    <input asp-for="Month" value="@Model.Month" />
+    <label>Day </label>
+    <input asp-for="Day" value="@Model.Day" />
+    <label>Time </label>
+    <input asp-for="Time" value="@Model.Time" />
+
+    <input type="submit" />
+</form>

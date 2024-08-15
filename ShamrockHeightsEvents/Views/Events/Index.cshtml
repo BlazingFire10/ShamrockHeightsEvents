@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<Event>
+
+<h1>Sharmock Heights Upcoming Events</h1>
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="Add">Add a new Event</a>
+}
+
+@foreach (Event e in Model) {
+    <img src="@e.ImageUrl" />
+    <h4>@e.Title</h4>
+    <p>Description: @e.Description</p>
+    @if (User.IsInRole("Admin"))
+    {
+        <form method="post" asp-action="Delete" asp-route-id="@e.Id">
+            <button type="submit">Delete</button>
+        </form>
+        <form method="get" asp-action="Edit" asp-route-id="@e.Id">
+            <button type="submit">Edit</button>
+        </form>
+    }
+}
